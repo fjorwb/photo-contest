@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const { Model } = require('sequelize');
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
 	const Role = sequelize.define(
@@ -15,15 +15,15 @@ module.exports = (sequelize, DataTypes) => {
 		{
 			tableName: 'roles'
 		}
-	);
+	)
 
 	Role.associate = function (models) {
 		Role.belongsToMany(models.User, {
 			as: 'users',
-			through: 'user_role',
+			through: 'user_roles',
 			foreignKey: 'role_id',
 			onDelete: 'CASCADE'
-		});
-	};
-	return Role;
-};
+		})
+	}
+	return Role
+}

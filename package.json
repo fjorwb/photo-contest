@@ -1,5 +1,5 @@
 {
-		"scripts": {
+	"scripts": {
 		"start": "node server.js",
 		"make-migrate": "npx sequelize-cli model:generate --name users",
 		"migrate": "npx sequelize-cli db:migrate",
@@ -27,7 +27,6 @@
 		"express": "~4.16.1",
 		"express-fileupload": "1.4.0",
 		"http-errors": "~1.6.3",
-		"i": "0.3.7",
 		"jsonwebtoken": "8.5.1",
 		"morgan": "~1.9.1",
 		"node-cache": "5.1.2",

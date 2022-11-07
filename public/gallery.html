@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+		<script src="https://kit.fontawesome.com/08f2822b68.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="./stylesheets/style.css" />
+		<script src="./javascripts/app.js" defer></script>
+		<script src="./javascripts/gallery.js" defer></script>
+
+		<title>Photo Caption Contest</title>
+	</head>
+		<div class="container">
+    <header class="header-container">
+				<nav class="menu">
+					<a href="#" class="toggle-btn">
+						<i class="fas fa-bars icon"></i>
+					</a>
+					<div class="navbar-link">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="photos.html">Photos</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="about.html">About</a></li>
+						</ul>
+					</div>
+				</nav>
+      <div class="title">
+        <h1>PHOTO CAPTION CONTEST</h1>
+        <h3>INTERNATIONAL MONOCHROME CONTEST</h3>
+      </div>
+				<div class="user">
+					<div id="plogin" onclick="pLogout()">
+						<a href="#" id="login" class="login">Login</a>
+					</div>
+					<div id="plogout" onclick="pLogin()">
+						<a href="#" id="logout" class="logout">Logout</a>
+					</div>
+					<p>|</p>
+					<a href="#" id="register">Join</a>
+					<div id="admin" onchange="isAdmin()">
+						<!-- <p >|</p> -->
+						<a href="./admin/usersA.html">Admin</a>
+					</div>
+				</div>
+    </header>
+			<main>
+				<h1>Gallery</h1>
+				<div class="gallery-filter">
+					<!-- <input type="button" class="btn-gallery"> -->
+          <div class="gallery-filter-select">
+						<select name="galleries" id="filter" class="btn-captions" onchange="getSelectValue()" required>
+              <option value="0" >--please select a category</option>
+            </select>
+          </div>
+				</div>
+				<div class="gallery" id="gallery" ></div>
+			</main>
+			<footer>
+				<div class="footer-container">
+					<p>footer</p>
+				</div>
+			</footer>
+		</div>
+
+		<dialog class="modal" id="modal">
+			<h1 class="modal-title">Caption Vote</h1>
+			<p>Your vote for this caption has been registered</p>
+			<button class="btn-caption close-button">close</button>
+		</dialog>
+
+		<dialog class="modal-login" id="modal-login">
+			<h1 class="modal-title">Login</h1>
+			<form method="dialog" autocomplete="off">
+				<section class="form-login">
+					<input
+						type="text"
+						name="email"
+						id="email"
+						placeholder="email"
+						readonly
+						onfocus="this.removeAttribute('readonly');"
+					/>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						placeholder="password"
+						readonly
+						onfocus="this.removeAttribute('readonly');"
+					/>
+				</section>
+				<menu class="form-login-buttons">
+					<button class="btn-caption" id="enter-login" type="submit">Login</button>
+					<button class="btn-caption close-button-login">Cancel</button>
+				</menu>
+			</form>
+		</dialog>
+
+		<dialog class="modal-register" id="modal-register">
+			<h1 class="modal-title">Register</h1>
+			<form method="dialog" class="form-register">
+				<section class="register-section-1">
+					<div class="register-names">
+						<input
+							type="text"
+							id="first-name"
+							name="first-name"
+							placeholder="first name"
+							required
+						/>
+						<input type="text" id="last-name" name="last-name" placeholder="last name" required />
+					</div>
+					<input
+						type="email"
+						id="register-email"
+						name="email"
+						placeholder="email"
+						required
+						readonly
+						onfocus="this.removeAttribute('readonly');"
+					/>
+					<div>
+						<input
+							type="password"
+							id="register-password"
+							name="password"
+							placeholder="password"
+							required
+							readonly
+							onfocus="this.removeAttribute('readonly');"
+						/>
+						<input
+							type="password"
+							id="register-password2"
+							name="password2"
+							placeholder="re-type password"
+							required
+						/>
+					</div>
+				</section>
+				<section class="register-section-2">
+					<h2 class="modal-subtitle">additional information</h2>
+					<div class="address">
+						<input type="text" id="address" name="address" placeholder="address" />
+						<input type="text" id="address2" name="address2" placeholder="address2" />
+					</div>
+					<div class="other-addres">
+						<input type="text" id="city" name="city" placeholder="city" />
+						<input type="text" id="state" name="state" placeholder="state" />
+						<input type="text" id="zipcode" name="zipcode" placeholder="zipcode" />
+						<input type="text" id="country" name="country" placeholder="country" />
+					</div>
+					<input type="text" id="phone" name="phone" placeholder="phone" />
+				</section>
+			</form>
+			<menu class="form-register-buttons">
+				<button class="btn-caption" id="enter-register" type="submit">Register</button>
+				<button class="btn-caption close-button-register">Cancel</button>
+			</menu>
+		</dialog>
+
+
+
+		<!-- <dialog class="modal1" id="modal1">
+			<h1 class="modal-title">Enter your Caption</h1>
+			<form method="dialog">
+				<section>
+					<textarea
+						name="textarea"
+						rows="10"
+						cols="50"
+						maxlength="5"
+						placeholder="enter your caption here..."
+						id="textarea"
+					></textarea>
+				</section>
+				<menu>
+					<button class="btn-caption" id="enter-caption" type="submit">Enter</button>
+					<button class="btn-caption close-button1">Cancel</button>
+				</menu>
+			</form>
+		</dialog> -->
+	</body>
+</html>

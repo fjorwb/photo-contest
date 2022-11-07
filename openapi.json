@@ -1,0 +1,1286 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "photo-contest",
+		"contact": {},
+		"version": "1.0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3000",
+			"variables": {}
+		}
+	],
+	"paths": {
+		"/auth/register": {
+			"post": {
+				"tags": ["auth"],
+				"summary": "registerUser",
+				"operationId": "registerUser",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/registerUserRequest"
+									},
+									{
+										"example": {
+											"email": "user4@email.com",
+											"password": "12345",
+											"first_name": "User",
+											"last_name": "Four",
+											"address": "444 street 4",
+											"address2": "some other address 4",
+											"city": "Four",
+											"state": "Four",
+											"zip_code": 44444,
+											"country": "Four country",
+											"phone": "444-444-4444",
+											"role": "manager"
+										}
+									}
+								]
+							},
+							"example": {
+								"email": "user4@email.com",
+								"password": "12345",
+								"first_name": "User",
+								"last_name": "Four",
+								"address": "444 street 4",
+								"address2": "some other address 4",
+								"city": "Four",
+								"state": "Four",
+								"zip_code": 44444,
+								"country": "Four country",
+								"phone": "444-444-4444",
+								"role": "manager"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": []
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"tags": ["auth"],
+				"summary": "loginUser",
+				"operationId": "loginUser",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/loginUserRequest"
+									},
+									{
+										"example": {
+											"email": "user3@email.com",
+											"password": "12345"
+										}
+									}
+								]
+							},
+							"example": {
+								"email": "user3@email.com",
+								"password": "12345"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": []
+			}
+		},
+		"/users": {
+			"get": {
+				"tags": ["users"],
+				"summary": "getAllUsers",
+				"operationId": "getAllUsers",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			},
+			"post": {
+				"tags": ["users"],
+				"summary": "createUser",
+				"operationId": "createUser",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/createUserRequest"
+									},
+									{
+										"example": {
+											"email": "user5@email.com",
+											"password": "12345678",
+											"first_name": "User",
+											"last_name": "Four",
+											"address": "444 street 4",
+											"address2": "some other address 4",
+											"city": "Four",
+											"state": "Four",
+											"zip_code": "44444",
+											"country": "Four country",
+											"phone": "444-444-4444",
+											"role": "user"
+										}
+									}
+								]
+							},
+							"example": {
+								"email": "user5@email.com",
+								"password": "12345678",
+								"first_name": "User",
+								"last_name": "Four",
+								"address": "444 street 4",
+								"address2": "some other address 4",
+								"city": "Four",
+								"state": "Four",
+								"zip_code": "44444",
+								"country": "Four country",
+								"phone": "444-444-4444",
+								"role": "user"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/users/{id}": {
+			"get": {
+				"tags": ["users"],
+				"summary": "getUserById",
+				"operationId": "getUserById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "user id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			},
+			"put": {
+				"tags": ["users"],
+				"summary": "updateUser",
+				"operationId": "updateUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "user id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/updateUserRequest"
+									},
+									{
+										"example": {
+											"email": "user42@email.com",
+											"password": "12345678",
+											"first_name": "User",
+											"last_name": "Four",
+											"address": "444 street 4",
+											"address2": "some other address 4",
+											"city": "Four",
+											"state": "Four",
+											"zip_code": "44444",
+											"country": "Four country",
+											"phone": "000-444-4444",
+											"role": "user"
+										}
+									}
+								]
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			},
+			"delete": {
+				"tags": ["users"],
+				"summary": "deleteUser",
+				"operationId": "deleteUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "user id",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/photos/data": {
+			"get": {
+				"tags": ["photos"],
+				"summary": "getAllPhotosData",
+				"operationId": "getAllPhotosData",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": []
+			}
+		},
+		"/photos": {
+			"get": {
+				"tags": ["photos"],
+				"summary": "getAllPhotos",
+				"operationId": "getAllPhotos",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			},
+			"post": {
+				"tags": ["photos"],
+				"summary": "addPhoto",
+				"operationId": "addPhoto",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/addPhotoRequest"
+									},
+									{
+										"example": {
+											"id": 5,
+											"title": "The Photo 5",
+											"category": "panomamic",
+											"description": "A panoramic photo 5",
+											"url": "http://picsum.photos/200/300",
+											"user_id": 2
+										}
+									}
+								]
+							},
+							"example": {
+								"id": 5,
+								"title": "The Photo 5",
+								"category": "panomamic",
+								"description": "A panoramic photo 5",
+								"url": "http://picsum.photos/200/300",
+								"user_id": 2
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/photos/1": {
+			"get": {
+				"tags": ["photos"],
+				"summary": "getPhotoById",
+				"operationId": "getPhotoById",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/photos/captions": {
+			"get": {
+				"tags": ["photos"],
+				"summary": "getCaptionsByPhoto",
+				"operationId": "getCaptionsByPhoto",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/photos/data2/5": {
+			"delete": {
+				"tags": ["photos"],
+				"summary": "deletePhoto",
+				"operationId": "deletePhoto",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/votes/votesByPhoto": {
+			"get": {
+				"tags": ["votes"],
+				"summary": "getAllVotes",
+				"operationId": "getAllVotes",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/votes": {
+			"post": {
+				"tags": ["votes"],
+				"summary": "addVote",
+				"operationId": "addVote",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/addVoteRequest"
+									},
+									{
+										"example": {
+											"user_id": 2,
+											"photo_id": 1,
+											"caption_id": 1
+										}
+									}
+								]
+							},
+							"example": {
+								"id": 4,
+								"user_id": 2,
+								"photo_id": 1,
+								"caption_id": 1
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/inscriptions": {
+			"get": {
+				"tags": ["inscriptions"],
+				"summary": "getAllInscriptions",
+				"operationId": "getAllInscriptions",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/inscriptions/data": {
+			"get": {
+				"tags": ["inscriptions"],
+				"summary": "getAllInscriptionsData",
+				"operationId": "getAllInscriptionsData",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/inscriptions/paid": {
+			"get": {
+				"tags": ["inscriptions"],
+				"summary": "getPaidInscriptions",
+				"operationId": "getPaidInscriptions",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/inscriptions/unpaid": {
+			"get": {
+				"tags": ["inscriptions"],
+				"summary": "getAllUnpaidInscriptions",
+				"operationId": "getAllUnpaidInscriptions",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/captions": {
+			"get": {
+				"tags": ["captions"],
+				"summary": "getAllCaptions",
+				"operationId": "getAllCaptions",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": []
+			},
+			"post": {
+				"tags": ["captions"],
+				"summary": "addCaption",
+				"operationId": "addCaption",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/addCaptionRequest"
+									},
+									{
+										"example": {
+											"id": 5,
+											"caption": "caption about photo 3",
+											"user_id": 2,
+											"photo_id": 3
+										}
+									}
+								]
+							},
+							"example": {
+								"id": 5,
+								"caption": "caption about photo 3",
+								"user_id": 2,
+								"photo_id": 3
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/captions/captionsByPhoto": {
+			"get": {
+				"tags": ["captions"],
+				"summary": "getCaptionsByPhoto",
+				"operationId": "GetgetCaptionsByPhoto",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/captions/5": {
+			"put": {
+				"tags": ["captions"],
+				"summary": "updateCaption",
+				"operationId": "updateCaption",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/updateCaptionRequest"
+									},
+									{
+										"example": {
+											"caption": "caption about photo 3aaaa"
+										}
+									}
+								]
+							},
+							"example": {
+								"caption": "caption about photo 3aaaa"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["captions"],
+				"summary": "deleteCaption",
+				"operationId": "deleteCaption",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/categories": {
+			"get": {
+				"tags": ["categories"],
+				"summary": "getAllCategories",
+				"operationId": "getAllCategories",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["categories"],
+				"summary": "addCategory",
+				"operationId": "addCategory",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/addCategoryRequest"
+									},
+									{
+										"example": {
+											"id": 15,
+											"category": "aves"
+										}
+									}
+								]
+							},
+							"example": {
+								"id": 15,
+								"category": "aves"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		},
+		"/categories/15": {
+			"get": {
+				"tags": ["categories"],
+				"summary": "getCategoryById",
+				"operationId": "getCategoryById",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			},
+			"put": {
+				"tags": ["categories"],
+				"summary": "updateCategory",
+				"operationId": "updateCategory",
+				"parameters": [],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"$ref": "#/components/schemas/updateCategoryRequest"
+									},
+									{
+										"example": {
+											"id": 15,
+											"category": "tuttu"
+										}
+									}
+								]
+							},
+							"example": {
+								"id": 15,
+								"category": "tuttu"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			},
+			"delete": {
+				"tags": ["categories"],
+				"summary": "deleteCategory",
+				"operationId": "deleteCategory",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "",
+						"headers": {}
+					}
+				},
+				"deprecated": false,
+				"security": [
+					{
+						"bearer": []
+					}
+				]
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"registerUserRequest": {
+				"title": "registerUserRequest",
+				"required": [
+					"email",
+					"password",
+					"first_name",
+					"last_name",
+					"address",
+					"address2",
+					"city",
+					"state",
+					"zip_code",
+					"country",
+					"phone",
+					"role"
+				],
+				"type": "object",
+				"properties": {
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"first_name": {
+						"type": "string"
+					},
+					"last_name": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					},
+					"address2": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"state": {
+						"type": "string"
+					},
+					"zip_code": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"country": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"email": "user4@email.com",
+					"password": "12345",
+					"first_name": "User",
+					"last_name": "Four",
+					"address": "444 street 4",
+					"address2": "some other address 4",
+					"city": "Four",
+					"state": "Four",
+					"zip_code": 44444,
+					"country": "Four country",
+					"phone": "444-444-4444",
+					"role": "manager"
+				}
+			},
+			"loginUserRequest": {
+				"title": "loginUserRequest",
+				"required": ["email", "password"],
+				"type": "object",
+				"properties": {
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"email": "user3@email.com",
+					"password": "12345"
+				}
+			},
+			"createUserRequest": {
+				"title": "createUserRequest",
+				"required": [
+					"email",
+					"password",
+					"first_name",
+					"last_name",
+					"address",
+					"address2",
+					"city",
+					"state",
+					"zip_code",
+					"country",
+					"phone",
+					"role"
+				],
+				"type": "object",
+				"properties": {
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"first_name": {
+						"type": "string"
+					},
+					"last_name": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					},
+					"address2": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"state": {
+						"type": "string"
+					},
+					"zip_code": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"email": "user5@email.com",
+					"password": "12345678",
+					"first_name": "User",
+					"last_name": "Four",
+					"address": "444 street 4",
+					"address2": "some other address 4",
+					"city": "Four",
+					"state": "Four",
+					"zip_code": "44444",
+					"country": "Four country",
+					"phone": "444-444-4444",
+					"role": "user"
+				}
+			},
+			"updateUserRequest": {
+				"title": "updateUserRequest",
+				"required": [
+					"email",
+					"password",
+					"first_name",
+					"last_name",
+					"address",
+					"address2",
+					"city",
+					"state",
+					"zip_code",
+					"country",
+					"phone",
+					"role"
+				],
+				"type": "object",
+				"properties": {
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"first_name": {
+						"type": "string"
+					},
+					"last_name": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					},
+					"address2": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"state": {
+						"type": "string"
+					},
+					"zip_code": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"email": "user433@email.com",
+					"password": "12345678",
+					"first_name": "User",
+					"last_name": "Four",
+					"address": "444 street 4",
+					"address2": "some other address 4",
+					"city": "Four",
+					"state": "Four",
+					"zip_code": "44444",
+					"country": "Four country",
+					"phone": "000-444-4444",
+					"role": "user"
+				}
+			},
+			"addPhotoRequest": {
+				"title": "addPhotoRequest",
+				"required": ["id", "title", "category", "description", "url", "user_id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"title": {
+						"type": "string"
+					},
+					"category": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					},
+					"user_id": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"example": {
+					"id": 5,
+					"title": "The Photo 5",
+					"category": "panomamic",
+					"description": "A panoramic photo 5",
+					"url": "http://picsum.photos/200/300",
+					"user_id": 2
+				}
+			},
+			"addVoteRequest": {
+				"title": "addVoteRequest",
+				"required": ["id", "user_id", "photo_id", "caption_id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"user_id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"photo_id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"caption_id": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"example": {
+					"user_id": 8,
+					"photo_id": 1,
+					"caption_id": 1
+				}
+			},
+			"addCaptionRequest": {
+				"title": "addCaptionRequest",
+				"required": ["id", "caption", "user_id", "photo_id"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"caption": {
+						"type": "string"
+					},
+					"user_id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"photo_id": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"example": {
+					"id": 5,
+					"caption": "caption about photo 3",
+					"user_id": 2,
+					"photo_id": 3
+				}
+			},
+			"updateCaptionRequest": {
+				"title": "updateCaptionRequest",
+				"required": ["caption"],
+				"type": "object",
+				"properties": {
+					"caption": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"caption": "caption about photo 3aaaa"
+				}
+			},
+			"addCategoryRequest": {
+				"title": "addCategoryRequest",
+				"required": ["id", "category"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"category": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"id": 15,
+					"category": "aves"
+				}
+			},
+			"updateCategoryRequest": {
+				"title": "updateCategoryRequest",
+				"required": ["id", "category"],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"category": {
+						"type": "string"
+					}
+				},
+				"example": {
+					"id": 15,
+					"category": "tuttu"
+				}
+			}
+		},
+		"securitySchemes": {
+			"bearer": {
+				"type": "http",
+				"scheme": "bearer"
+			}
+		}
+	},
+	"security": [],
+	"tags": [
+		{
+			"name": "auth"
+		},
+		{
+			"name": "users"
+		},
+		{
+			"name": "photos"
+		},
+		{
+			"name": "votes"
+		},
+		{
+			"name": "inscriptions"
+		},
+		{
+			"name": "captions"
+		},
+		{
+			"name": "categories"
+		}
+	]
+}

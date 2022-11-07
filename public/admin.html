@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/08f2822b68.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <script  src="./javascripts/app.js" defer ></script>
+
+  <title>Photo Caption Contest</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header-container">
+      <nav class="menu">
+        <a href="#" class="toggle-btn">
+          <i class="fas fa-bars icon"></i>
+        </a>
+        <div class="navbar-link">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="photos.html">Photos</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="title">
+        <h1>PHOTO CAPTION CONTEST</h1>
+        <h3>INTERNATIONAL MONOCHROME CONTEST</h3>
+      </div>
+      <div class="user">
+        <a href="#" id="login" ">Login</a>
+        <p>|</p>
+        <a href="#" id="register">Join</a>
+      </div>
+    </header>
+    <main>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <p>footer</p>
+
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="modal" id="modal">
+    <h1 class="modal-title"></h1>
+    <p class="modal-msg"></p>
+    <p class="modal-msg2"></p>
+    <button class="btn-caption close-button">close</button>
+  </dialog>
+
+  <dialog class="modal1" id="modal1">
+    <h1 class="modal-title">Enter your Caption</h1>
+    <form method="dialog">
+      <section>
+        <textarea name="textarea" rows="10" cols="50" maxlength="255" placeholder="enter your caption here..." id="textarea"></textarea>
+      </section>
+    <menu>
+      <button class="btn-caption" id="enter-caption" type="submit">Enter</button>
+      <button class="btn-caption close-button1">Cancel</button>
+    </menu>
+
+    </form>
+  </dialog>
+
+  <dialog class="modal-login" id="modal-login">
+    <h1 class="modal-title">Login</h1>
+    <form method="dialog">
+      <section class="form-login">
+        <input type="text" name="email" id="email" placeholder="email">
+        <input type="password" name="password" id="password" placeholder="password">
+      </section>
+      <menu class="form-login-buttons">
+        <button class="btn-caption" id="enter-login" type="submit">Login</button>
+        <button class="btn-caption close-button-login">Cancel</button>
+      </menu>
+    </form>
+  </dialog>
+
+  
+  
+</body>
+</html>

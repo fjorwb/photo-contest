@@ -1,5 +1,6 @@
 {
 	"scripts": {
+		"start": "node server.js",
 		"make-migrate": "npx sequelize-cli model:generate --name users",
 		"migrate": "npx sequelize-cli db:migrate",
 		"make-seed": "npx sequelize-cli seed:generate --name demo-user",
@@ -7,7 +8,6 @@
 		"undo-seed": "npx sequelize-cli db:seed:undo:all",
 		"undo-migrate": "npx sequelize-cli db:migrate:undo:all",
 		"db-re-start": "npm run undo-migrate && npm run migrate && npm run seed",
-		"start": "node server.js",
 		"dev": "nodemon server.js"
 	},
 	"name": "photo-contest",

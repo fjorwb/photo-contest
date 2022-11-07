@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.bulkInsert(
-			'users',
+			'Users',
 			[
 				{
 					id: 1,
@@ -58,10 +58,10 @@ module.exports = {
 				}
 			],
 			{}
-		);
+		)
 
 		await queryInterface.bulkInsert(
-			'photos',
+			'Photos',
 			[
 				{
 					id: 1,
@@ -98,10 +98,10 @@ module.exports = {
 				}
 			],
 			{}
-		);
+		)
 
 		await queryInterface.bulkInsert(
-			'captions',
+			'Captions',
 			[
 				{
 					id: 1,
@@ -137,10 +137,10 @@ module.exports = {
 				}
 			],
 			{}
-		);
+		)
 
 		await queryInterface.bulkInsert(
-			'votes',
+			'Votes',
 			[
 				{
 					id: 1,
@@ -171,10 +171,10 @@ module.exports = {
 				}
 			],
 			{}
-		);
+		)
 
 		await queryInterface.bulkInsert(
-			'inscriptions',
+			'Inscriptions',
 			[
 				{
 					id: 1,
@@ -205,14 +205,14 @@ module.exports = {
 				}
 			],
 			{}
-		);
+		)
 	},
 
 	async down(queryInterface, Sequelize) {
-		await queryInterface.bulkDelete('inscriptions', null, {});
-		await queryInterface.bulkDelete('votes', null, {});
-		await queryInterface.bulkDelete('captions', null, {});
-		await queryInterface.bulkDelete('photos', null, {});
-		await queryInterface.bulkDelete('users', null, {});
+		await queryInterface.bulkDelete('Inscriptions', null, {})
+		await queryInterface.bulkDelete('Votes', null, {})
+		await queryInterface.bulkDelete('Captions', null, {})
+		await queryInterface.bulkDelete('Photos', null, {})
+		await queryInterface.bulkDelete('Users', null, {})
 	}
-};
+}

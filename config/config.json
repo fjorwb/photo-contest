@@ -1,0 +1,32 @@
+{
+	"development": {
+		"username": "photo_contest",
+		"password": null,
+		"database": "photo_contest",
+		"host": "127.0.0.1",
+		"dialect": "postgres"
+	},
+	"test": {
+		"username": "photo_contest",
+		"password": null,
+		"database": "photo_contest",
+		"host": "127.0.0.1",
+		"dialect": "postgres"
+	},
+	"production": {
+		"use_env_variable": "DATABASE_URL",
+		"dialect": "postgres",
+		"dialectOptions": {
+			"ssl": {
+				"require": true,
+				"rejectUnauthorized": false
+			}
+		}
+	},
+
+	"migrationStorage": "sequelize",
+	"migrationStorageTableName": "migrations",
+
+	"seederStorage": "sequelize",
+	"seederStorageTableName": "seeders"
+}

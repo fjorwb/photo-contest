@@ -2,6 +2,7 @@ require('dotenv').config()
 
 module.exports = {
 	//Database config
+
 	development: {
 		username: process.env.USERNAME || 'photo_contest',
 		password: process.env.PASSWORD || null,
